@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashBoardController;
+use App\Http\Controllers\IdeaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashBoardController::class,'index']);
-Route::get('/terms',function(){
+Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
+Route::get('/terms', function () {
     return view('terms');
 });
+
+Route::post('/idea', [IdeaController::class, 'store'])->name('idea.create');
