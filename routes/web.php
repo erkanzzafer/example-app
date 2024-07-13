@@ -21,3 +21,4 @@ Route::get('/terms', function () {
 });
 
 Route::post('/idea', [IdeaController::class, 'store'])->name('idea.create');
+Route::delete('/idea/{id}', [IdeaController::class, 'destroy'])->name('idea.destroy');

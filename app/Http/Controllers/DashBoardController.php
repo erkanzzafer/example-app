@@ -16,6 +16,6 @@ class DashBoardController extends Controller
 
         //  dd(Idea::all());
 
-        return view('dashboard', ['ideas' => Idea::all()]);
+        return view('dashboard', ['ideas' => Idea::orderBy('created_at', 'DESC')->paginate(2)]);
     }
 }
