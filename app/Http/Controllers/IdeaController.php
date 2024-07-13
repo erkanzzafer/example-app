@@ -13,7 +13,7 @@ class IdeaController extends Controller
             'content' => request('idea'),
         ]);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('success', 'Twit oluşturuldu');
 
     }
 }
