@@ -11,6 +11,7 @@ class IdeaController extends Controller
     public function show(Idea $idea)
     {
 
+
         return view('ideas.show', compact('idea'));
         /*
         return view('ideas.show',[
@@ -27,7 +28,7 @@ class IdeaController extends Controller
         ]);
 
         $idea = Idea::create([
-            'content' => request('content',''),
+            'content' => request('content', ''),
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Twit oluşturuldu');
@@ -60,9 +61,9 @@ class IdeaController extends Controller
             'content' => 'required|min:3|max:240',
 
         ]);
-        $idea->content = request()->get('content','');
+        $idea->content = request()->get('content', '');
         $idea->save();
-        return redirect()->route('idea.show',$idea->id)->with('success','idea güncelleme başarılı');
+        return redirect()->route('idea.show', $idea->id)->with('success', 'idea güncelleme başarılı');
     }
 
 }

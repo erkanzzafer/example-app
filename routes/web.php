@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\IdeaController;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,5 @@ Route::delete('/idea/{idea}', [IdeaController::class, 'destroy'])->name('idea.de
 Route::get('/idea/{idea}', [IdeaController::class, 'show'])->name('idea.show');
 Route::get('/idea/{idea}/edit', [IdeaController::class, 'edit'])->name('idea.edit');
 Route::put('/idea/{idea}', [IdeaController::class, 'update'])->name('idea.update');
+
+Route::post('/idea/{idea}/comments', [CommentController::class, 'store'])->name('idea.comments.store');
