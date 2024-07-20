@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\IdeaController;
@@ -20,6 +21,9 @@ Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 Route::get('/terms', function () {
     return view('terms');
 });
+
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'store']);
 
 Route::post('/idea', [IdeaController::class, 'store'])->name('idea.create');
 Route::delete('/idea/{idea}', [IdeaController::class, 'destroy'])->name('idea.destroy');
