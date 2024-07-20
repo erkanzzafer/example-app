@@ -25,6 +25,10 @@ Route::get('/terms', function () {
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store']);
 
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::post('/idea', [IdeaController::class, 'store'])->name('idea.create');
 Route::delete('/idea/{idea}', [IdeaController::class, 'destroy'])->name('idea.destroy');
 Route::get('/idea/{idea}', [IdeaController::class, 'show'])->name('idea.show');
