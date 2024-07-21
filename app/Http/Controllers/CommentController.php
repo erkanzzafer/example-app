@@ -13,6 +13,7 @@ class CommentController extends Controller
         $comment = new Comment();
         $comment->idea_id = $idea->id;
         $comment->content = request()->get('content');
+        $comment->user_id=auth()->user()->id;
         $comment->save();
         return redirect()->route('idea.show', $idea->id)->with('success', 'Yorum gönderildi');
     }

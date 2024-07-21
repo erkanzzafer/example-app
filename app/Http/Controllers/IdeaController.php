@@ -27,6 +27,8 @@ class IdeaController extends Controller
 
         ]);
 
+        $validated['user_id'] = auth()->id();
+
         Idea::create($validated);
 
         return redirect()->route('dashboard')->with('success', 'Twit oluşturuldu');
