@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\IdeaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,7 @@ Route::group(['prefix' => 'idea/', 'as' => 'idea.'], function () {
 });
 Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 
-
+Route::resource('users', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
 
 Route::get('/terms', function () {
     return view('terms');
